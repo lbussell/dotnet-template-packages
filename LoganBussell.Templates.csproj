@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!-- The package metadata. Fill in the properties marked as TODO below -->
-    <!-- Follow the instructions on https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices -->
+    <!-- https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices -->
     <PackageId>LoganBussell.Templates</PackageId>
     <Title>LoganBussell.Templates</Title>
     <Authors>Logan Bussell</Authors>
     <Description>.NET templates for quickly creating packages and tools.</Description>
     <PackageTags>dotnet;templates;nuget;package;csharp</PackageTags>
     <PackageProjectUrl>https://github.com/lbussell/dotnet-template-packages</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
     <!-- Keep package type as 'Template' to show the package as a template package on nuget.org and make your template available in dotnet new search.-->
     <PackageType>Template</PackageType>
