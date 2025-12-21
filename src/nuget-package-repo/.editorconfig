@@ -37,7 +37,27 @@ insert_final_newline = true
 # Organize usings
 dotnet_separate_import_directive_groups = true
 dotnet_sort_system_directives_first = true
+
+# File header settings
+# --------------------
+# - If authors are specified, then include the SPDX-FileCopyrightText tag:
+#   SPDX-FileCopyrightText: Copyright (c) <CurrentYear> <AuthorNames>
+#
+# - If license is specified, then include the SPDX-License-Identifier tag:
+#   SPDX-License-Identifier: <LicenseExpression>
+#
+# Example of full file header:
+# SPDX-FileCopyrightText: Copyright (c) 2025 Logan Bussell
+# SPDX-License-Identifier: MIT
+#if (hasAuthors && hasLicenseExpression)
+file_header_template = SPDX-FileCopyrightText: Copyright (c) YEAR_PLACEHOLDER AUTHORS_PLACEHOLDER\nSPDX-License-Identifier: LICENSE_PLACEHOLDER
+#elseif (hasAuthors)
+file_header_template = SPDX-FileCopyrightText: Copyright (c) YEAR_PLACEHOLDER AUTHORS_PLACEHOLDER
+#elseif (hasLicenseExpression)
+file_header_template = SPDX-License-Identifier: LICENSE_PLACEHOLDER
+#else
 file_header_template = unset
+#endif
 
 # this. and Me. preferences
 dotnet_style_qualification_for_event = false:silent

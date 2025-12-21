@@ -14,5 +14,37 @@
   "tags": {
     "language": "C#",
     "type": "project"
+  },
+  "symbols": {
+    "authors": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "Comma-separated list of package authors (e.g., 'John Doe, Jane Smith')",
+      "replaces": "AUTHORS_PLACEHOLDER",
+      "defaultValue": ""
+    },
+    "hasAuthors": {
+      "type": "computed",
+      "value": "(authors != \"\")"
+    },
+    "licenseExpression": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "SPDX license expression for the package (e.g., 'MIT', 'Apache-2.0', 'GPL-3.0-only')",
+      "replaces": "LICENSE_PLACEHOLDER",
+      "defaultValue": ""
+    },
+    "hasLicenseExpression": {
+      "type": "computed",
+      "value": "(licenseExpression != \"\")"
+    },
+    "copyrightYear": {
+      "type": "generated",
+      "generator": "now",
+      "parameters": {
+        "format": "yyyy"
+      },
+      "replaces": "YEAR_PLACEHOLDER"
+    }
   }
 }

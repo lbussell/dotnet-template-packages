@@ -33,12 +33,19 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Licensing">
+<!--#if (hasAuthors) -->
+    <Authors>AUTHORS_PLACEHOLDER</Authors>
+    <Copyright>Copyright (c) YEAR_PLACEHOLDER $(Authors)</Copyright>
+<!--#else -->
     <!-- TODO: Add a comma-separated list of package authors: -->
-    <!-- <Authors>AUTHORS_PLACEHOLDER</Authors> -->
+    <!-- <Authors></Authors> -->
 
-    <CopyrightYear>$([System.DateTime]::Now.ToString("yyyy"))</CopyrightYear>
     <!-- TODO: Uncomment or update copyright text -->
-    <!-- <Copyright>Copyright (c) $(CopyrightYear) $(Authors)</Copyright> -->
+    <!-- <Copyright>Copyright (c) YEAR_PLACEHOLDER $(Authors)</Copyright> -->
+<!--#endif -->
+<!--#if (hasLicenseExpression) -->
+    <PackageLicenseExpression>LICENSE_PLACEHOLDER</PackageLicenseExpression>
+<!--#else -->
 
     <!-- TODO: Set the license for your package.
       A project without a license defaults to exclusive copyright, meaning
@@ -47,7 +54,8 @@
       https://learn.microsoft.com/en-us/nuget/reference/nuspec#license
       https://spdx.org/licenses/
       Common values: MIT, Apache-2.0, GPL-3.0-only -->
-    <!-- <PackageLicenseExpression>MIT</PackageLicenseExpression> -->
+    <!-- <PackageLicenseExpression></PackageLicenseExpression> -->
+<!--#endif -->
   </PropertyGroup>
 
 </Project>
