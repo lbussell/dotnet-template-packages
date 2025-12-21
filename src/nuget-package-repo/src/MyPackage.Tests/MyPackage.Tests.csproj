@@ -3,11 +3,12 @@
   <!-- TargetFramework and other common properties are inherited from
     ../Directory.Build.props and shared by all projects. -->
 
+  <!-- Package versions are managed centrally in ../Directory.Packages.props. -->
   <ItemGroup>
-    <PackageReference Include="MSTest" Version="4.0.1" />
+    <PackageReference Include="MSTest" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Label="Global usings">
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
 
