@@ -4,6 +4,13 @@ on:
     branches: [main]
     tags: ['*']
   pull_request:
+  workflow_call:
+    inputs:
+      stable-version:
+        description: 'Build as a stable version (no prerelease suffix)'
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   build-and-pack:
@@ -21,7 +28,7 @@ jobs:
           dotnet-version: 10.0.x
 
       - name: Build and pack
-        run: dotnet pack
+        run: dotnet pack -p:StableVersion=${{ inputs.stable-version }}
 
       # https://github.com/actions/upload-artifact/releases/tag/v6.0.0
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
