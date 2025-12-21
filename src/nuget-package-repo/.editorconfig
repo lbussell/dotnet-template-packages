@@ -38,8 +38,12 @@ insert_final_newline = true
 dotnet_separate_import_directive_groups = true
 dotnet_sort_system_directives_first = true
 
+#if (hasFileHeader)
 # File header settings
-# --------------------
+file_header_template = EDITORCONFIG_FILE_HEADER
+#else
+# TODO: Set file header settings
+#
 # - If authors are specified, then include the SPDX-FileCopyrightText tag:
 #   SPDX-FileCopyrightText: Copyright (c) <CurrentYear> <AuthorNames>
 #
@@ -47,11 +51,8 @@ dotnet_sort_system_directives_first = true
 #   SPDX-License-Identifier: <LicenseExpression>
 #
 # Example of full file header:
-# SPDX-FileCopyrightText: Copyright (c) 2025 Logan Bussell
+# SPDX-FileCopyrightText: Copyright (c) 202X Your Name
 # SPDX-License-Identifier: MIT
-#if (hasFileHeader)
-file_header_template = EDITORCONFIG_FILE_HEADER
-#else
 file_header_template = unset
 #endif
 
