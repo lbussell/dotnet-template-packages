@@ -7,7 +7,7 @@
     ../Directory.Build.props and shared by all projects. -->
 
   <PropertyGroup Label="Package Metadata">
-    <PackageId>MyPackage</PackageId>
+    <PackageId>MyPackage.1</PackageId>
 
     <!-- TODO: Add a short description of the package -->
     <!-- <Description></Description> -->

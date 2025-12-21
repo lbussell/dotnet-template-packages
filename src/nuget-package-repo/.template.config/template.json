@@ -10,7 +10,7 @@
   "identity": "LoganBussell.Templates.NuGetPackageRepo",
   "name": "NuGet Package Repo Template",
   "shortName": "nuget-package-repo",
-  "sourceName": "MyPackage",
+  "sourceName": "MyPackage.1",
   "tags": {
     "language": "C#",
     "type": "project"

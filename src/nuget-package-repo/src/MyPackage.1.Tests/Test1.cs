@@ -2,7 +2,7 @@
 SOURCE_FILE_HEADER
 
 //#endif
-namespace MyPackage.Tests;
+namespace MyPackage._1.Tests;
 
 [TestClass]
 public sealed class Test1
