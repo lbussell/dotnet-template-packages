@@ -1,1 +1,5 @@
-﻿[assembly: Parallelize(Scope = ExecutionScope.MethodLevel)]
+﻿//#if (hasFileHeader)
+SOURCE_FILE_HEADER
+
+//#endif
+[assembly: Parallelize(Scope = ExecutionScope.MethodLevel)]

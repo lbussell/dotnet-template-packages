@@ -49,12 +49,8 @@ dotnet_sort_system_directives_first = true
 # Example of full file header:
 # SPDX-FileCopyrightText: Copyright (c) 2025 Logan Bussell
 # SPDX-License-Identifier: MIT
-#if (hasAuthors && hasLicenseExpression)
-file_header_template = SPDX-FileCopyrightText: Copyright (c) YEAR_PLACEHOLDER AUTHORS_PLACEHOLDER\nSPDX-License-Identifier: LICENSE_PLACEHOLDER
-#elseif (hasAuthors)
-file_header_template = SPDX-FileCopyrightText: Copyright (c) YEAR_PLACEHOLDER AUTHORS_PLACEHOLDER
-#elseif (hasLicenseExpression)
-file_header_template = SPDX-License-Identifier: LICENSE_PLACEHOLDER
+#if (hasFileHeader)
+file_header_template = EDITORCONFIG_FILE_HEADER
 #else
 file_header_template = unset
 #endif

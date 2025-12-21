@@ -25,7 +25,7 @@
     },
     "hasAuthors": {
       "type": "computed",
-      "value": "(authors != \"\")"
+      "value": "(authors != '')"
     },
     "licenseExpression": {
       "type": "parameter",
@@ -36,7 +36,11 @@
     },
     "hasLicenseExpression": {
       "type": "computed",
-      "value": "(licenseExpression != \"\")"
+      "value": "(licenseExpression != '')"
+    },
+    "hasFileHeader": {
+      "type": "computed",
+      "value": "(hasAuthors || hasLicenseExpression)"
     },
     "copyrightYear": {
       "type": "generated",
@@ -45,6 +49,101 @@
         "format": "yyyy"
       },
       "replaces": "YEAR_PLACEHOLDER"
+    },
+    "copyrightLine": {
+      "type": "generated",
+      "generator": "join",
+      "parameters": {
+        "symbols": [
+          {
+            "type": "const",
+            "value": "SPDX-FileCopyrightText: Copyright (c)"
+          },
+          {
+            "type": "ref",
+            "value": "copyrightYear"
+          },
+          {
+            "type": "ref",
+            "value": "authors"
+          }
+        ],
+        "separator": " ",
+        "removeEmptyValues": true
+      }
+    },
+    "copyrightLineComment": {
+      "type": "derived",
+      "valueSource": "copyrightLine",
+      "valueTransform": "csComment"
+    },
+    "licenseLine": {
+      "type": "generated",
+      "generator": "join",
+      "parameters": {
+        "symbols": [
+          {
+            "type": "const",
+            "value": "SPDX-License-Identifier:"
+          },
+          {
+            "type": "ref",
+            "value": "licenseExpression"
+          }
+        ],
+        "separator": " ",
+        "removeEmptyValues": true
+      }
+    },
+    "licenseLineComment": {
+      "type": "derived",
+      "valueSource": "licenseLine",
+      "valueTransform": "csComment"
+    },
+    "editorConfigFileHeader": {
+      "type": "generated",
+      "generator": "join",
+      "parameters": {
+        "symbols": [
+          {
+            "type": "ref",
+            "value": "copyrightLine"
+          },
+          {
+            "type": "ref",
+            "value": "licenseLine"
+          }
+        ],
+        "separator": "\\n",
+        "removeEmptyValues": true
+      },
+      "replaces": "EDITORCONFIG_FILE_HEADER"
+    },
+    "sourceFileHeader": {
+      "type": "generated",
+      "generator": "join",
+      "parameters": {
+        "symbols": [
+          {
+            "type": "ref",
+            "value": "copyrightLineComment"
+          },
+          {
+            "type": "ref",
+            "value": "licenseLineComment"
+          }
+        ],
+        "separator": "\n",
+        "removeEmptyValues": true
+      },
+      "replaces": "SOURCE_FILE_HEADER"
+    }
+  },
+  "forms": {
+    "csComment": {
+      "identifier": "replace",
+      "pattern": "^",
+      "replacement": "// "
     }
   }
 }
