@@ -9,13 +9,48 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Label="Package Metadata">
+    <PackageId>MyPackage</PackageId>
+
+    <!-- TODO: Add a short description of the package -->
+    <!-- <Description></Description> -->
+
+    <!-- <PackageReadmeFile></PackageReadmeFile> -->
+
+    <!-- TODO: Add a package icon.
+      Use a 128x128 PNG with transparent background. -->
+    <!-- <PackageIcon></PackageIcon> -->
+
+    <!-- TODO: Add a link to your package's website, if it has one. -->
+    <!-- <PackageProjectUrl></PackageProjectUrl> -->
+
+    <!-- TODO: Add a link to your package's source code repository. -->
+    <!-- <RepositoryUrl>https://github.com/lbussell/dotnet-template-packages.git</RepositoryUrl> -->
+    <!-- Examples: git (default), tfs -->
+    <!-- <RepositoryType>git</RepositoryType> -->
+
+    <!-- TODO: Add tags to help users find your package in search results.
+      This should be a semicolon-delimited list of tags. -->
+    <!-- <PackageTags></PackageTags> -->
+    <!-- <PackageReleaseNotes></PackageReleaseNotes> -->
+  </PropertyGroup>
+
   <PropertyGroup Label="Licensing">
+    <!-- TODO: Add a comma-separated list of package authors: -->
+    <!-- <Authors>AUTHORS_PLACEHOLDER</Authors> -->
+
+    <CopyrightYear>$([System.DateTime]::Now.ToString("yyyy"))</CopyrightYear>
+    <!-- TODO: Uncomment or update copyright text -->
+    <!-- <Copyright>Copyright (c) $(CopyrightYear) $(Authors)</Copyright> -->
+
     <!-- TODO: Set the license for your package.
       A project without a license defaults to exclusive copyright, meaning
       that you have not granted anyone permission to use your project.
-      License expressions supported by NuGet:
-      https://learn.microsoft.com/en-us/nuget/reference/nuspec#license -->
-    <!-- <PackageLicenseExpression></PackageLicenseExpression> -->
+      NuGet supports SPDX license expressions:
+      https://learn.microsoft.com/en-us/nuget/reference/nuspec#license
+      https://spdx.org/licenses/
+      Common values: MIT, Apache-2.0, GPL-3.0-only -->
+    <!-- <PackageLicenseExpression>MIT</PackageLicenseExpression> -->
   </PropertyGroup>
 
 </Project>
