@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "lbussell",
+  "classifications": [
+    "Common",
+    "Console",
+    "NuGet",
+    "Repo"
+  ],
+  "identity": "ExampleTemplate.AsyncProject",
+  "name": "NuGet Package Repo Template",
+  "shortName": "nuget-package-repo",
+  "sourceName": "MyPackage",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}
