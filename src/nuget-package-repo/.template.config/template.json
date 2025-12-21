@@ -7,7 +7,7 @@
     "NuGet",
     "Repo"
   ],
-  "identity": "ExampleTemplate.AsyncProject",
+  "identity": "LoganBussell.Templates.NuGetPackageRepo",
   "name": "NuGet Package Repo Template",
   "shortName": "nuget-package-repo",
   "sourceName": "MyPackage",
