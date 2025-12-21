@@ -3,6 +3,9 @@
 $artifactsDir = "$PSScriptRoot/artifacts"
 $nupkgDir = "$PSScriptRoot/bin/Release"
 
+# Uninstall old versions
+dotnet new uninstall LoganBussell.Templates
+
 # Clear out artifacts directory
 if (Test-Path $artifactsDir) {
     Remove-Item $artifactsDir -Recurse -Force
@@ -21,12 +24,31 @@ dotnet pack "$PSScriptRoot" -c Release
 $nupkg = Get-ChildItem "$nupkgDir/*.nupkg" | Select-Object -First 1
 dotnet new install $nupkg.FullName --force
 
-# Generate a new project from the template
-dotnet new nuget-package-repo --name TestPackage --output $artifactsDir
+# Generate new projects from the template
 
-# Build the generated project
-pushd $artifactsDir
-dotnet build
+$noAuthors = "$artifactsDir/no-authors-no-license"
+echo "Generating $noAuthors"
+mkdir $noAuthors
+dotnet new nuget-package-repo --output $noAuthors
+pushd $noAuthors
+dotnet test
+dotnet pack
+popd
+
+$withAuthors = "$artifactsDir/with-authors-and-license"
+echo "Generating $withAuthors"
+mkdir $withAuthors
+dotnet new nuget-package-repo --authors "YourName" --licenseExpression "MIT-0" --output $withAuthors
+pushd $withAuthors
+dotnet test
+dotnet pack
+popd
+
+$CustomName = "$artifactsDir/custom-name"
+echo "Generating $CustomName"
+mkdir $CustomName
+dotnet new nuget-package-repo --name "CustomName" --authors "YourName" --licenseExpression "MIT-0" --output $CustomName
+pushd $CustomName
 dotnet test
 dotnet pack
 popd
