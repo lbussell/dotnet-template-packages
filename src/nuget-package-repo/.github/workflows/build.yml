@@ -27,8 +27,11 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
+      - name: Restore
+        run: dotnet restore
+
       - name: Build and pack
-        run: dotnet pack -p:StableVersion=${{ inputs.stable-version }} --output packages
+        run: dotnet pack --no-restore -p:StableVersion=${{ inputs.stable-version }} --output packages
 
       # https://github.com/actions/upload-artifact/releases/tag/v6.0.0
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
