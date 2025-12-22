@@ -32,6 +32,35 @@
     <!-- <PackageReleaseNotes></PackageReleaseNotes> -->
   </PropertyGroup>
 
+  <PropertyGroup Label="Versioning">
+    <!-- Update these version numbers manually. -->
+    <!-- Follow https://semver.org/spec/v2.0.0.html -->
+    <MajorVersion>0</MajorVersion>
+    <MinorVersion>1</MinorVersion>
+    <PatchVersion>0</PatchVersion>
+
+    <!-- Build date in format YYYY.MM.DD -->
+    <BuildDate>$([System.DateTime]::Now.ToString("yyyy.MM.dd"))</BuildDate>
+
+    <!-- Pre-release versioning label -->
+    <!-- This should stay the same throughout a given release cycle, or
+         preferably for the entire life of the package. -->
+    <!-- Other options might be: "alpha", "beta", "pre", etc. -->
+    <PreReleaseVersionLabel>preview</PreReleaseVersionLabel>
+
+    <!-- Set this to true to create a stable release version -->
+    <StableVersion>false</StableVersion>
+
+    <!-- Example CI/preview build version: 1.2.4-preview.202X.12.19 -->
+    <!-- Example stable release version: 1.2.4 (pass -p:StableVersion=true) -->
+    <PackageVersion Condition="'$(StableVersion)' == 'true'">
+      $(MajorVersion).$(MinorVersion).$(PatchVersion)
+    </PackageVersion>
+    <PackageVersion Condition="'$(StableVersion)' != 'true'">
+      $(MajorVersion).$(MinorVersion).$(PatchVersion)-$(PreReleaseVersionLabel).$(BuildDate)
+    </PackageVersion>
+  </PropertyGroup>
+
   <PropertyGroup Label="Licensing">
 <!--#if (hasAuthors) -->
     <Authors>AUTHORS_PLACEHOLDER</Authors>
