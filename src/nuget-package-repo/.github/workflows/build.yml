@@ -33,9 +33,21 @@ jobs:
       - name: Build and pack
         run: dotnet pack --no-restore -p:StableVersion=${{ inputs.stable-version }} --output packages
 
+      - name: Run tests
+        run: dotnet test --no-restore --logger trx --results-directory test-results
+
       # https://github.com/actions/upload-artifact/releases/tag/v6.0.0
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         name: Upload NuGet packages
         with:
           name: nuget-packages
           path: packages/*.nupkg
+
+      # https://github.com/actions/upload-artifact/releases/tag/v6.0.0
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        name: Upload test results
+        # Ensures that test results are uploaded even if tests fail
+        if: always()
+        with:
+          name: test-results
+          path: test-results/*.trx
