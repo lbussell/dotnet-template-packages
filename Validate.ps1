@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 
-$artifactsDir = "$PSScriptRoot/artifacts"
+$artifactsDir = "$PSScriptRoot/../template-tests"
 $nupkgDir = "$PSScriptRoot/bin/Release"
 
 # Uninstall old versions
@@ -50,5 +50,14 @@ mkdir $CustomName
 dotnet new nuget-package-repo --name "CustomName" --authors "YourName" --licenseExpression "MIT-0" --output $CustomName
 pushd $CustomName
 dotnet test
+dotnet pack
+popd
+
+$toolProject = "$artifactsDir/tool-project"
+echo "Generating $toolProject"
+mkdir $toolProject
+dotnet new nuget-package-repo --name "MyTool" --publishAsTool --toolCommandName "mytool" --authors "YourName" --licenseExpression "MIT-0" --output $toolProject
+pushd $toolProject
+dotnet build
 dotnet pack
 popd
