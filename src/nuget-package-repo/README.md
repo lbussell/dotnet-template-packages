@@ -57,7 +57,7 @@ Versioning](https://semver.org/). In practice, that means doing the following:
 ### Publishing a Pre-Release Package
 
 Pre-release packages are useful for testing and early access. They include a
-version suffix like `-preview.yyyy.MM.dd`.
+version suffix like `-preview.yyyy.M.d`.
 
 1. Go to the **Actions** tab in your GitHub repository
 2. Select the **Publish NuGet Package** workflow
