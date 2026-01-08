@@ -3,8 +3,20 @@
   <!-- NuGet Package authoring best practices:
     https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices -->
 
+  <!-- .NET Tool creation guide:
+    https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create -->
+
   <!-- TargetFramework and other common properties are inherited from
     ../Directory.Build.props and shared by all projects. -->
+
+<!--#if (publishAsTool) -->
+  <PropertyGroup Label="Tool Configuration">
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>TOOL_COMMAND_NAME</ToolCommandName>
+  </PropertyGroup>
+
+<!--#endif -->
 
   <PropertyGroup Label="Package Metadata">
     <PackageId>MyPackage.1</PackageId>
