@@ -1,6 +1,6 @@
 #!/usr/bin/env pwsh
 
-$artifactsDir = "$PSScriptRoot/../template-tests"
+$artifactsDir = "$PSScriptRoot/artifacts"
 $nupkgDir = "$PSScriptRoot/bin/Release"
 
 # Uninstall old versions
