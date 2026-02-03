@@ -16,6 +16,19 @@
     "type": "project"
   },
   "symbols": {
+    "publishAsTool": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "When true, the package will be a .NET tool instead of a class library",
+      "defaultValue": "false"
+    },
+    "toolCommandName": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "The command name for the .NET tool (only used when publishAsTool is true)",
+      "replaces": "TOOL_COMMAND_NAME",
+      "defaultValue": "mypackage"
+    },
     "authors": {
       "type": "parameter",
       "datatype": "string",
@@ -145,5 +158,19 @@
       "pattern": "^",
       "replacement": "// "
     }
-  }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(publishAsTool)",
+          "exclude": ["src/MyPackage.1/Class1.cs"]
+        },
+        {
+          "condition": "(!publishAsTool)",
+          "exclude": ["src/MyPackage.1/Program.cs"]
+        }
+      ]
+    }
+  ]
 }

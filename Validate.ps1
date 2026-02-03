@@ -52,3 +52,12 @@ pushd $CustomName
 dotnet test
 dotnet pack
 popd
+
+$toolProject = "$artifactsDir/tool-project"
+echo "Generating $toolProject"
+mkdir $toolProject
+dotnet new nuget-package-repo --name "MyTool" --publishAsTool --toolCommandName "mytool" --authors "YourName" --licenseExpression "MIT-0" --output $toolProject
+pushd $toolProject
+dotnet test
+dotnet pack
+popd
