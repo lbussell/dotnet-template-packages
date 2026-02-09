@@ -25,22 +25,15 @@ dotnet test
 This repository includes GitHub Actions workflows for automated building and
 publishing to NuGet.org.
 
-### Setting Up Trusted Publishing
+### Set Up NuGet Trusted Publishing
 
-1. **Create a [NuGet.org](https://www.nuget.org) account** if you don't already
-    have one.
-2. **Create a new GitHub environment**:
-   - Go to Settings → Environments
-   - Create a new environment named `production`
-   - Add a new environment secret called NUGET_USER that contains your
-     NuGet.org username:
-     ![Setup Environment](https://raw.githubusercontent.com/lbussell/dotnet-template-packages/refs/heads/main/images/environment-1.jpg)
+1. **Create a [NuGet.org](https://www.nuget.org) account** if you don't already have one.
+2. **Run setup script**:
+   - `dotnet scripts/SetupPublishing.cs` (requires .NET 10+ SDK)
+   - This script will walk you through setting up a production environment and
+     initializing your environment with your NuGet.org username.
 3. **Set up Trusted Publishing to NuGet.org**:
-   - From [NuGet.org](https://www.nuget.org), click on your username in the top
-     right and then click "Trusted Publishing".
-   - Create a new Trusted Publishing configuration pointing at your repository
-     and the `publish-nuget.yml` workflow file:
-     ![Trusted Publishing configuration](https://raw.githubusercontent.com/lbussell/dotnet-template-packages/refs/heads/main/images/trusted-publishing-2.jpg)
+   - Follow the instructions output by the setup script.
 
 ### Updating Package Version Numbers
 
